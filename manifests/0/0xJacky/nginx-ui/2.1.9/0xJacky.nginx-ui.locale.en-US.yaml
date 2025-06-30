@@ -7,7 +7,7 @@ PackageLocale: en-US
 Publisher: 0xJacky
 PublisherUrl: https://github.com/0xJacky
 Author: 0xJacky
-PackageName: komac
+PackageName: nginx-ui
 PackageUrl: https://nginxui.com/
 License: GPL-3.0
 LicenseUrl: https://github.com/0xJacky/nginx-ui/blob/dev/LICENSE
