@@ -3,7 +3,7 @@ name: Update WinGet Packages
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 3 * * *' # Scheduled to run daily at 03:00
+    - cron:  '0 1/2 * * *' # Scheduled to run every 2 hours from 1AM
 
 jobs:
   update:
@@ -14,9 +14,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - id: "libvips.libvips"
-            repo: "libvips/build-win64-mxe"
-            url: "https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip"
+          - id: libvips.libvips
+            repo: libvips/build-win64-mxe
+            url: https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip
+          - id: Jacalz.Rymdport
+            repo: Jacalz/rymdport
+            url: https://github.com/Jacalz/rymdport/releases/download/v{VERSION}/rymdport-v{VERSION}-windows-x86_64.zip
           
     steps:
     - name: Update Packages
