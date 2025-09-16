@@ -18,6 +18,9 @@ jobs:
           - id: libvips.libvips
             repo: libvips/build-win64-mxe
             url: https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip
+          - id: f3d-app.f3d
+            repo: f3d-app/f3d
+            url: https://github.com/f3d-app/f3d/releases/download/v{VERSION}/F3D-{VERSION}-Windows-x86_64.exe
           - id: Jacalz.Rymdport
             repo: Jacalz/rymdport
             url: https://github.com/Jacalz/rymdport/releases/download/v{VERSION}/rymdport-v{VERSION}-windows-x86_64.zip
