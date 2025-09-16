@@ -3,7 +3,7 @@ name: Update WinGet Packages
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '0 1/2 * * *' # Scheduled to run every 2 hours from 1AM
+    - cron:  '0 1 * * *' # Scheduled to run every 2 hours from 1AM
 
 jobs:
   update:
@@ -14,13 +14,36 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          # Manually chosen packages
           - id: libvips.libvips
             repo: libvips/build-win64-mxe
             url: https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip
           - id: Jacalz.Rymdport
             repo: Jacalz/rymdport
             url: https://github.com/Jacalz/rymdport/releases/download/v{VERSION}/rymdport-v{VERSION}-windows-x86_64.zip
-          
+            
+          # Found updates available between mismatching github release and winget version for all below packages
+          # Could suggest auto guthub action workflow winget-releaser
+          - id: MikeFarah.yq
+            repo: mikefarah/yq
+            url: https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe
+          - id: ArduinoSA.CLI
+            repo: arduino/arduino-cli
+            url: https://github.com/arduino/arduino-cli/releases/download/v{VERSION}/arduino-cli_{VERSION}_Windows_64bit.msi
+          - id: JeniusApps.Ambie
+            repo: jenius-apps/ambie
+            url: https://github.com/jenius-apps/ambie/releases/download/v{VERSION}/Ambie_{VERSION}.0_x64_ARM64.msixbundle
+            
+          # winget-releaser Github action Workflow might be outdated for belo packages
+          # https://github.com/Victor-IX/Blender-Launcher-V2/blob/main/.github/workflows/release-winget.yml
+          - id: VictorIX.BlenderLauncher
+            repo: Victor-IX/Blender-Launcher-V2
+            url: https://github.com/Victor-IX/Blender-Launcher-V2/releases/download/v{VERSION}/Blender_Launcher_v{VERSION}_Windows_x64.zip
+          # https://github.com/marticliment/UniGetUI/blob/main/.github/workflows/winget-stable.yml
+          - id: MartiCliment.UniGetUI
+            repo: marticliment/UniGetUI
+            url: https://github.com/marticliment/UniGetUI/releases/download/{VERSION}/UniGetUI.Installer.exe
+            
     steps:
     - name: Update Packages
       uses: michidk/winget-updater@latest
