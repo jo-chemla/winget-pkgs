@@ -49,6 +49,10 @@ jobs:
           - id: MikeFarah.yq
             repo: mikefarah/yq
             url: https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe
+          # https://github.com/dyad-sh/dyad/pull/1657
+          - id: Dyad.Dyad
+            repo: dyad-sh/dyad
+            url: https://github.com/dyad-sh/dyad/releases/download/v{VERSION}/dyad-{VERSION}.Setup.exe
           # https://github.com/Jacalz/rymdport/issues/168
           - id: Jacalz.Rymdport
             repo: Jacalz/rymdport
@@ -68,7 +72,7 @@ jobs:
           # https://github.com/tranxuanthang/lrcget/issues/180
           - id: LRCLIB.LRCGET
             repo: tranxuanthang/lrcget
-            url: https://github.com/tranxuanthang/lrcget/releases/download/1.0.1/LRCGET_1.0.1_x64-setup.exe
+            url: https://github.com/tranxuanthang/lrcget/releases/download/{VERSION}/LRCGET_{VERSION}_x64-setup.exe
 
             
     steps:
