@@ -17,7 +17,7 @@ jobs:
           # Manually chosen packages
           - id: libvips.libvips
             repo: libvips/build-win64-mxe
-            url: https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip
+            url: "https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w64-all-{VERSION}.zip https://github.com/libvips/build-win64-mxe/releases/download/v{VERSION}/vips-dev-w32-all-{VERSION}.zip"
           - id: f3d-app.f3d
             repo: f3d-app/f3d
             url: https://github.com/f3d-app/f3d/releases/download/v{VERSION}/F3D-{VERSION}-Windows-x86_64.exe
