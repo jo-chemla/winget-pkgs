@@ -28,10 +28,10 @@ jobs:
           - id: ArduinoSA.CLI
             repo: arduino/arduino-cli
             url: https://github.com/arduino/arduino-cli/releases/download/v{VERSION}/arduino-cli_{VERSION}_Windows_64bit.msi
-          # Tricky dependencies https://github.com/microsoft/winget-pkgs/pull/293860
-          - id: JeniusApps.Ambie
-            repo: jenius-apps/ambie
-            url: https://github.com/jenius-apps/ambie/releases/download/v{VERSION}/Ambie_{VERSION}.0_x64_ARM64.msixbundle
+          # Tricky dependencies https://github.com/microsoft/winget-pkgs/pull/293860 and https://github.com/microsoft/winget-pkgs/pull/317811
+          #- id: JeniusApps.Ambie
+          #  repo: jenius-apps/ambie
+          #  url: https://github.com/jenius-apps/ambie/releases/download/v{VERSION}/Ambie_{VERSION}.0_x64_ARM64.msixbundle
             
           # winget-releaser Github action Workflow might be outdated for below packages
           # https://github.com/Victor-IX/Blender-Launcher-V2/blob/main/.github/workflows/release-winget.yml
