@@ -65,7 +65,8 @@ jobs:
           # https://github.com/files-community/Files/issues/16374
           - id: FilesCommunity.Files
             repo: files-community/Files
-            url: https://cdn.files.community/files/stable/Files.Package_{VERSION}_Test/Files.Package_{VERSION}_x64_arm64.msixbundle
+            # url: https://cdn.files.community/files/stable/Files.Package_{VERSION}_Test/Files.Package_{VERSION}_x64_arm64.msixbundle
+            url: https://cdn.files.community/files/stable/Files.Package/Files.Package_x64_arm64.msixbundle
           # https://github.com/TheWaWaR/simple-http-server/issues/135
           - id: TheWaWaR.simple-http-server
             repo: TheWaWaR/simple-http-server
@@ -74,6 +75,9 @@ jobs:
           - id: LRCLIB.LRCGET
             repo: tranxuanthang/lrcget
             url: https://github.com/tranxuanthang/lrcget/releases/download/{VERSION}/LRCGET_{VERSION}_x64-setup.exe
+          - id: mmalmi.nostr-vpn
+            repo: mmalmi/nostr-vpn
+            url: https://github.com/mmalmi/nostr-vpn/releases/download/v{VERSION}/nostr-vpn-v{VERSION}-windows-x64-setup.exe
 
             
     steps:
