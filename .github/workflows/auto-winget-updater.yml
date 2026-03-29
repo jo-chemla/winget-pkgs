@@ -49,7 +49,7 @@ jobs:
           # https://github.com/mikefarah/yq/pull/2479
           - id: MikeFarah.yq
             repo: mikefarah/yq
-            url: https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_386.exe
+            url: '"https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_386.exe"' 
           # https://github.com/dyad-sh/dyad/pull/1657
           - id: Dyad.Dyad
             repo: dyad-sh/dyad
