@@ -49,7 +49,7 @@ jobs:
           # https://github.com/mikefarah/yq/pull/2479
           - id: MikeFarah.yq
             repo: mikefarah/yq
-            url: '"https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_386.exe"' 
+            url: '"https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe" "https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_386.exe"' 
           # https://github.com/dyad-sh/dyad/pull/1657
           - id: Dyad.Dyad
             repo: dyad-sh/dyad
@@ -63,10 +63,11 @@ jobs:
             repo: Frontesque/scrcpy-plus
             url: https://github.com/Frontesque/scrcpy-plus/releases/download/{VERSION}/scrcpy-plus-WINDOWS_x64-installer.exe
           # https://github.com/files-community/Files/issues/16374
-          - id: FilesCommunity.Files
-            repo: files-community/Files
-            # url: https://cdn.files.community/files/stable/Files.Package_{VERSION}_Test/Files.Package_{VERSION}_x64_arm64.msixbundle
-            url: https://cdn.files.community/files/stable/Files.Package/Files.Package_x64_arm64.msixbundle
+          # Removing Files, see https://github.com/microsoft/winget-pkgs/pull/353664#issuecomment-4153620334
+          # - id: FilesCommunity.Files
+          #   repo: files-community/Files
+          #   # url: https://cdn.files.community/files/stable/Files.Package_{VERSION}_Test/Files.Package_{VERSION}_x64_arm64.msixbundle
+          #   url: https://cdn.files.community/files/stable/Files.Package/Files.Package_x64_arm64.msixbundle
           # https://github.com/TheWaWaR/simple-http-server/issues/135
           - id: TheWaWaR.simple-http-server
             repo: TheWaWaR/simple-http-server
