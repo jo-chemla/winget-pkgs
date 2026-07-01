@@ -43,7 +43,7 @@ jobs:
           # https://github.com/schollz/croc/pull/991
           - id: schollz.croc
             repo: schollz/croc
-            url: "https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-32bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-64bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM64.zip"
+            url: '"https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-32bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-64bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM64.zip"' 
 
           # Package author/maintainer prefers outside winget auto-release
           # https://github.com/mikefarah/yq/pull/2479
