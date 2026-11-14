@@ -61,7 +61,7 @@ jobs:
           # https://github.com/Frontesque/scrcpy-plus/issues/63
           - id: Frontesque.scrcpy+
             repo: Frontesque/scrcpy-plus
-            url: https://github.com/Frontesque/scrcpy-plus/releases/download/{VERSION}/scrcpy-plus-WINDOWS_x64-installer.exe
+            url: https://github.com/Frontesque/scrcpy-plus/releases/download/{VERSION}/scrcpy-plus_{VERSION}_x64-setup.exe
           # https://github.com/files-community/Files/issues/16374
           # Removing Files, see https://github.com/microsoft/winget-pkgs/pull/353664#issuecomment-4153620334
           # - id: FilesCommunity.Files
