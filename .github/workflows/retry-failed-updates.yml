@@ -1,0 +1,44 @@
+name: Retry Failed WinGet Updates
+
+# Transient failures (komac/binstall crashes with exit 70, network/API hiccups,
+# github.com rate limiting) hit a random package roughly once a week.
+# When "Update WinGet Packages" fails, wait a bit and re-run only the failed jobs,
+# up to MAX_ATTEMPTS total attempts. Persistent errors (e.g. a renamed release
+# asset returning 404) will still fail after the last attempt.
+
+on:
+  workflow_run:
+    workflows: ["Update WinGet Packages"]
+    types: [completed]
+
+permissions:
+  actions: write
+
+env:
+  MAX_ATTEMPTS: 3        # 1 original run + 2 retries
+  DELAY_MINUTES: 15
+
+jobs:
+  rerun-failed:
+    name: Re-run failed jobs (attempt ${{ github.event.workflow_run.run_attempt }})
+    if: github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Wait and re-run failed jobs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+          ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        run: |
+          if [ "$ATTEMPT" -ge "$MAX_ATTEMPTS" ]; then
+            echo "Run $RUN_ID already at attempt $ATTEMPT/$MAX_ATTEMPTS, giving up."
+            exit 0
+          fi
+          echo "Failed jobs in run $RUN_ID (attempt $ATTEMPT):"
+          gh run view "$RUN_ID" --json jobs -q '.jobs[] | select(.conclusion=="failure") | "  - " + .name'
+          echo "Waiting $DELAY_MINUTES minutes before retrying..."
+          sleep $((DELAY_MINUTES * 60))
+          gh run rerun "$RUN_ID" --failed
+          echo "Triggered attempt $((ATTEMPT + 1)): https://github.com/$GH_REPO/actions/runs/$RUN_ID"
