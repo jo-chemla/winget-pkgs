@@ -42,9 +42,12 @@ jobs:
             repo: Victor-IX/Blender-Launcher-V2
             url: https://github.com/Victor-IX/Blender-Launcher-V2/releases/download/v{VERSION}/Blender_Launcher_v{VERSION}_Windows_x64.zip
           # https://github.com/schollz/croc/pull/991
-          - id: schollz.croc
-            repo: schollz/croc
-            url: '"https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-32bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-64bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM64.zip"' 
+          # Disabled 2026-11-15: since 11.6.1 the zip also ships croc-update.exe and every version fails
+          # winget validation (Validation-Installation-Error), see microsoft/winget-pkgs#474803.
+          # Re-enable once a newer release validates.
+          # - id: schollz.croc
+          #   repo: schollz/croc
+          #   url: '"https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-32bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-64bit.zip https://github.com/schollz/croc/releases/download/v{VERSION}/croc_v{VERSION}_Windows-ARM64.zip"' 
 
           # Package author/maintainer prefers outside winget auto-release
           # https://github.com/mikefarah/yq/pull/2479
