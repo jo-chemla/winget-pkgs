@@ -55,11 +55,10 @@ jobs:
             repo: mikefarah/yq
             url: '"https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_amd64.exe https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_386.exe https://github.com/mikefarah/yq/releases/download/v{VERSION}/yq_windows_arm64.exe"'
           # https://github.com/dyad-sh/dyad/pull/1657
-          # Disabled 2026-11-15: installers since 1.21.0 fail winget validation (Validation-Executable-Error),
-          # see microsoft/winget-pkgs#462665, #469367, #475714. Re-enable once a newer release validates.
-          # - id: Dyad.Dyad
-          #   repo: dyad-sh/dyad
-          #   url: https://github.com/dyad-sh/dyad/releases/download/v{VERSION}/dyad-{VERSION}.Setup.exe
+          # Re-enabled 2026-11-21 after 1.22.0 re-validated and merged (microsoft/winget-pkgs#469367).
+          - id: Dyad.Dyad
+            repo: dyad-sh/dyad
+            url: https://github.com/dyad-sh/dyad/releases/download/v{VERSION}/dyad-{VERSION}.Setup.exe
           # https://github.com/Jacalz/rymdport/issues/168
           - id: Jacalz.Rymdport
             repo: Jacalz/rymdport
