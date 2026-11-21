@@ -91,12 +91,12 @@ jobs:
     # Pre-install Komac from its GitHub release so the action's cargo-binstall step is skipped.
     # binstall's unauthenticated lookups time out when all matrix jobs start at once, and it then
     # compiles Komac from source (~6 min, the cause of the past exit-70 / out-of-memory failures).
-    # Keep KOMAC_VERSION in sync with michidk/winget-updater's komac-version default.
+    # KOMAC_VERSION may be newer than michidk/winget-updater's komac-version default (2.15.0); the action uses whatever komac is on PATH.
     - name: Pre-install Komac
       continue-on-error: true # fall back to the action's own install if this fails
       env:
         GH_TOKEN: ${{ github.token }}
-        KOMAC_VERSION: '2.15.0'
+        KOMAC_VERSION: '2.17.2'
       run: |
         asset="komac-$KOMAC_VERSION-x86_64-unknown-linux-gnu.tar.gz"
         for i in 1 2 3; do
