@@ -25,9 +25,10 @@ jobs:
             url: https://github.com/f3d-app/f3d/releases/download/v{VERSION}/F3D-{VERSION}-Windows-x86_64.exe
           # New package submitted 2026-11-23 (microsoft/winget-pkgs#487135); upstream has no winget release step.
           # Tags have no "v" prefix (e.g. 2026.11).
-          - id: CNRISTI.MeshLab2
-            repo: cnr-isti-vclab/meshlab2
-            url: https://github.com/cnr-isti-vclab/meshlab2/releases/download/{VERSION}/MeshLab-{VERSION}-windows-x86_64.zip
+          # Disabled until #487135 merges: komac update fails while the package is not yet in winget-pkgs.
+          # - id: CNRISTI.MeshLab2
+          #   repo: cnr-isti-vclab/meshlab2
+          #   url: https://github.com/cnr-isti-vclab/meshlab2/releases/download/{VERSION}/MeshLab-{VERSION}-windows-x86_64.zip
             
           # Found updates available between mismatching github release and winget version for all below packages
           # Could suggest auto github action workflow winget-releaser for below
